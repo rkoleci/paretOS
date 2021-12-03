@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
@@ -15,6 +15,7 @@ const Login = ({
   userHasAuthenticated,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory()
 
   const [values, setValues] = useState({
     email: '',
@@ -41,9 +42,10 @@ const Login = ({
       userHasAuthenticated(true);
       setCloseLoading();
     } catch (e) {
-      alert(e.message);
-      setIsLoading(false);
-      setCloseLoading();
+      history.push('/logout') 
+       alert(e.message);
+       setIsLoading(false);
+       setCloseLoading();
     }
   };
 

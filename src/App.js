@@ -150,6 +150,7 @@ class App extends Component {
       if (e.toString() === "Error: Network Error") {
         console.log("Successfully identified network error");
       }
+      this.props.history.push("/logout");
     }
   };
 

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import { quotes } from "../libs/quotes";
@@ -11,6 +12,15 @@ const randomIndex = Math.floor(Math.random() * Math.floor(quotes.length));
  */
 
 const LoadingModal = () => {
+  const [timeUp, setTimeUp] = useState(true)
+  const history = useHistory();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeUp(true)
+    }, 20 * 1000)
+  }, [])
+
   return (
     <React.Fragment>
       <DialogContent style={{ overflow: "visible", textAlign: "center" }}>
@@ -39,6 +49,7 @@ const LoadingModal = () => {
           >
             {quotes[randomIndex].author}
           </DialogContentText>
+          {timeUp &&  <input type="submit" value="Reset" name="reset" onClick={() => history.push("/logout")} />}
         </DialogContent>
       </div>
     </React.Fragment>

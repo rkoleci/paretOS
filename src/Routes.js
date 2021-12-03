@@ -27,6 +27,7 @@ import Room from "./containers/Room";
 import PomodoroDashboard from "./containers/PomodoroDashboard/PomodoroDashboard";
 import WorkRise from "./intl/ug/WorkRise";
 import MentorDashboard from "./mentorship/MentorDashboard";
+import Logout from './profile/Logout'
 
 export default ({ childProps }) => (
 	<Switch>
@@ -165,6 +166,11 @@ export default ({ childProps }) => (
 			component={PomodoroDashboard}
 			props={childProps}
 		/>
+    <Route
+      path="/logout"
+      exact
+      component={Logout}
+    />
 
 		{/* Finally, catch all unmatched routes */}
 		<Route component={NotFound} />

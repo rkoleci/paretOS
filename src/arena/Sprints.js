@@ -8,6 +8,7 @@ import { I18n } from "@aws-amplify/core";
 import { BiRun } from "react-icons/bi";
 import classNames from "classnames";
 import API from "@aws-amplify/api";
+console.log(API)
 
 /**
  * The Arena Dashboard shows you the sprints that you currently have, and let's you enter them by clicking/tapping.
